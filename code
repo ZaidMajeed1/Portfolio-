@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="animated-text">Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <img src="zac.jpg" alt="Profile Picture" class="profile-pic">
+        <p>Hello! I'm a passionate web developer specializing in modern animations and 3D effects.My name is Zaid Majeed, a dedicated developer, IT professional, and problem-solver from the picturesque region of Bemina, Srinagar in Kashmir. With a Bachelor's Degree in Computer Science, I am deeply passionate about software development, coding, and leveraging technology to create impactful solutions. Alongside my work in development, I am also an educator and counselor, guiding and mentoring over 1400 students at a prestigious educational institute. Beyond my professional pursuits, I enjoy writing and continuously expanding my knowledge. Helping others and making a meaningful difference in my community remains at the heart of everything I do.</p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-container">
+            <div class="project-card">Project 1 - Portfolio Website</div>
+            <div class="project-card">Project 2 - Food Web App</div>
+            <div class="project-card">Project 3 - 3D Animation Showcase</div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>GSAP</span>
+            <span>Three.js</span>
+            <span>React</span>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: zaydmajeed1@gmail.com</p>
+        <p>LinkedIn: <a href="#">My LinkedIn</a></p>
+    </section>
+
+    <div id="three-container"></div>
+
+    <script src="gsap.min.js"></script>
+    <script src="three.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d1117;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(4rem + 10px); /* Prevent content from being hidden under fixed header dynamically */
+}
+
+/* Glassmorphism Header */
+header {
+    background: rgba(22, 27, 34, 0.9);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #58a6ff;
+    transform: scale(1.1);
+}
+
+/* Sections */
+#about, #projects, #skills, #contact {
+    padding: 12vw 5vw; /* Adjust padding for better responsiveness */
+    margin: 0 auto;
+    max-width: 90vw;
+}
+
+/* 3D Profile Picture */
+.profile-pic {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #58a6ff;
+    box-shadow: 0px 10px 25px rgba(88, 166, 255, 0.6), 
+                0px 6px 15px rgba(255, 255, 255, 0.15);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1) rotateY(10deg); /* Reduced excessive scaling and rotation */
+    box-shadow: 0px 15px 30px rgba(88, 166, 255, 0.8);
+}
+
+/* Project Cards */
+.project-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Use relative units for better scalability */
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.project-card {
+    background: linear-gradient(135deg, #58a6ff, #1f6feb);
+    padding: 30px;
+    border-radius: 20px; /* Ensure consistent border-radius values */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.project-card:nth-child(odd) {
+    animation: float 3s ease-in-out infinite;
+}
+.project-card:nth-child(even) {
+    animation: float 3s ease-in-out infinite 1.5s;
+}
+
+/* Skills List */
+.skills-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Use relative units for better scalability */
+    padding: 40px;
+}
+
+.skills-list span {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 18px 24px;
+    display: inline-block;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.skills-list span:hover {
+    background: #58a6ff;
+    color: #0d1117;
+    transform: scale(1.2);
+    box-shadow: 0px 5px 15px rgba(88, 166, 255, 0.6);
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 10vw 5vw; /* Adjust padding for responsiveness */
+    background: rgba(22, 27, 34, 0.9);
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#contact h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #58a6ff;
+}
+
+#contact a {
+    display: inline-block;
+    margin: 12px;
+    padding: 14px 22px;
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #58a6ff;
+    border-radius: 20px; /* Ensure consistent border-radius values */
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#contact a:hover {
+    background: #58a6ff;
+    color: #0d1117;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 20px rgba(88, 166, 255, 0.5);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.to(".animated-text", { opacity: 1, y: -20, duration: 1 });
+    gsap.from(".project-card", { opacity: 0, scale: 0.8, duration: 1, stagger: 0.3 });
+    gsap.from(".skills-list span", { opacity: 0, y: 20, duration: 1, stagger: 0.2 });
+});
+
+// THREE.js 3D Objects
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, 400);
+document.getElementById("three-container").appendChild(renderer.domElement);
+
+const sphereGeometry = new THREE.SphereGeometry();
+const cubeGeometry = new THREE.BoxGeometry();
+const torusGeometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
+
+const material = new THREE.MeshStandardMaterial({ color: 0x00c6ff, metalness: 0.5, roughness: 0.1 });
+
+const sphere = new THREE.Mesh(sphereGeometry, material);
+const cube = new THREE.Mesh(cubeGeometry, material);
+const torus = new THREE.Mesh(torusGeometry, material);
+
+sphere.position.x = -2;
+cube.position.x = 0;
+torus.position.x = 2;
+
+scene.add(sphere, cube, torus);
+
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(10, 10, 10);
+scene.add(light);
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.x += 0.01;
+    sphere.rotation.y += 0.01;
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    torus.rotation.x += 0.01;
+    torus.rotation.y += 0.01;
+    renderer.render(scene, camera);
+}
+
+animate();
+
+// Adjust Three.js on Resize
+window.addEventListener('resize', ( ) => {
+    camera.aspect = window.innerWidth / 400;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, 400);
+});

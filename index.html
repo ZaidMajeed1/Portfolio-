@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <meta name="description" content="Portfolio of Zaid Majeed, a passionate web developer specialized in modern animations and 3D effects.">
+    <meta name="keywords" content="Zaid Majeed, web developer, animations, 3D effects, portfolio">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="animated-text">Welcome to My Portfolio</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <img src="zac.jpg" alt="Zaid Majeed's Profile Picture" class="profile-pic" loading="lazy">
+            <p>Hello! I'm a passionate web developer specializing in modern animations and 3D effects. My name is Zaid Majeed, a dedicated developer, IT professional, and problem-solver from the picturesque region of Bemina, Srinagar in Kashmir. With a Bachelor's Degree in Computer Science, I am deeply passionate about software development, coding, and leveraging technology to create impactful solutions. Alongside my work in development, I am also an educator and counselor, guiding and mentoring over 1400 students at a prestigious educational institute. Beyond my professional pursuits, I enjoy writing and continuously expanding my knowledge. Helping others and making a meaningful difference in my community remains at the heart of everything I do.</p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-container">
+                <article class="project-card">Project 1 - Portfolio Website</article>
+                <article class="project-card">Project 2 - Food Web App</article>
+                <article class="project-card">Project 3 - 3D Animation Showcase</article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>GSAP</span>
+                <span>Three.js</span>
+                <span>React</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:zaydmajeed1@gmail.com">zaydmajeed1@gmail.com</a></p>
+            <p>LinkedIn: <a href="#" target="_blank" rel="noopener noreferrer">My LinkedIn</a></p>
+        </section>
+
+        <div id="three-container"></div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
