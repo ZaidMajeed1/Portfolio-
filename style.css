@@ -1,3 +1,5 @@
+/* MOBILE FIRST APPROACH */
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #0d1117;
@@ -6,13 +8,13 @@ body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    scroll-padding-top: calc(4rem + 10px); /* Prevent content from being hidden under fixed header dynamically */
+    scroll-padding-top: calc(3rem + 10px);
 }
 
 /* Glassmorphism Header */
 header {
     background: rgba(22, 27, 34, 0.9);
-    padding: 15px;
+    padding: 12px 15px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -22,66 +24,85 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Navigation */
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+/* Navigation - Mobile First */
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.9rem;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 nav ul li a:hover {
     color: #58a6ff;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Sections */
 #about, #projects, #skills, #contact {
-    padding: 12vw 5vw; /* Adjust padding for better responsiveness */
+    padding: 8vw 5vw;
     margin: 0 auto;
-    max-width: 90vw;
+    max-width: 95vw;
+}
+
+main {
+    margin-top: 8rem;
 }
 
 /* 3D Profile Picture */
 .profile-pic {
-    width: 220px;
-    height: 220px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid #58a6ff;
-    box-shadow: 0px 10px 25px rgba(88, 166, 255, 0.6), 
+    border: 4px solid #58a6ff;
+    box-shadow: 0px 10px 25px rgba(88, 166, 255, 0.6),
                 0px 6px 15px rgba(255, 255, 255, 0.15);
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    margin: 20px auto;
 }
 
 .profile-pic:hover {
-    transform: scale(1.1) rotateY(10deg); /* Reduced excessive scaling and rotation */
+    transform: scale(1.08);
     box-shadow: 0px 15px 30px rgba(88, 166, 255, 0.8);
+}
+
+#about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Project Cards */
 .project-container {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Use relative units for better scalability */
+    gap: 1rem;
     flex-wrap: wrap;
-    padding: 40px;
+    padding: 15px;
 }
 
 .project-card {
     background: linear-gradient(135deg, #58a6ff, #1f6feb);
-    padding: 30px;
-    border-radius: 20px; /* Ensure consistent border-radius values */
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 250px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4);
     font-weight: bold;
@@ -89,7 +110,9 @@ nav ul li a:hover {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-size: 0.95rem;
 }
+
 /* Floating Animation */
 @keyframes float {
     0% { transform: translateY(0); }
@@ -100,6 +123,7 @@ nav ul li a:hover {
 .project-card:nth-child(odd) {
     animation: float 3s ease-in-out infinite;
 }
+
 .project-card:nth-child(even) {
     animation: float 3s ease-in-out infinite 1.5s;
 }
@@ -109,78 +133,248 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Use relative units for better scalability */
-    padding: 40px;
+    gap: 0.8rem;
+    padding: 15px;
 }
 
 .skills-list span {
     background: rgba(255, 255, 255, 0.15);
-    padding: 18px 24px;
+    padding: 12px 16px;
     display: inline-block;
-    border-radius: 15px;
+    border-radius: 12px;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.85rem;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .skills-list span:hover {
     background: #58a6ff;
     color: #0d1117;
-    transform: scale(1.2);
+    transform: scale(1.1);
     box-shadow: 0px 5px 15px rgba(88, 166, 255, 0.6);
 }
 
 /* Contact Section */
 #contact {
     text-align: center;
-    padding: 10vw 5vw; /* Adjust padding for responsiveness */
+    padding: 8vw 5vw;
     background: rgba(22, 27, 34, 0.9);
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
 }
 
 #contact h2 {
-    font-size: 3rem;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    margin: 20px 0;
     color: #58a6ff;
+}
+
+#contact p {
+    font-size: 0.9rem;
+    margin: 10px 0;
 }
 
 #contact a {
     display: inline-block;
-    margin: 12px;
-    padding: 14px 22px;
+    margin: 8px 6px;
+    padding: 10px 16px;
     color: #58a6ff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.85rem;
     border: 2px solid #58a6ff;
-    border-radius: 20px; /* Ensure consistent border-radius values */
+    border-radius: 15px;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 #contact a:hover {
     background: #58a6ff;
     color: #0d1117;
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0px 5px 20px rgba(88, 166, 255, 0.5);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* ========== TABLET (600px) ========== */
+@media (min-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    main {
+        margin-top: 6rem;
+    }
+
     .profile-pic {
         width: 180px;
         height: 180px;
+        border: 5px solid #58a6ff;
+    }
+
+    #about p {
+        font-size: 1rem;
+    }
+
+    .project-container {
+        gap: 1.5rem;
+        padding: 25px;
     }
 
     .project-card {
-        padding: 20px;
+        padding: 25px;
+        font-size: 1rem;
+        max-width: 280px;
+    }
+
+    .skills-list {
+        gap: 1rem;
+        padding: 25px;
+    }
+
+    .skills-list span {
+        font-size: 0.95rem;
+        padding: 14px 20px;
+    }
+
+    #contact h2 {
+        font-size: 2.2rem;
+    }
+
+    #contact a {
+        font-size: 0.9rem;
+        margin: 10px 8px;
+        padding: 12px 20px;
+    }
+}
+
+/* ========== TABLET LANDSCAPE (768px) ========== */
+@media (min-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.1rem;
+        gap: 25px;
+    }
+
+    main {
+        margin-top: 6.5rem;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+        border: 6px solid #58a6ff;
+    }
+
+    #about, #projects, #skills, #contact {
+        padding: 10vw 8vw;
+        max-width: 85vw;
+    }
+
+    .project-container {
+        gap: 2rem;
+        padding: 30px;
+    }
+
+    .project-card {
+        width: auto;
+        padding: 30px;
+        font-size: 1.05rem;
+        max-width: 300px;
+    }
+
+    .skills-list {
+        gap: 1.5rem;
+        padding: 40px;
+    }
+
+    .skills-list span {
+        font-size: 1.1rem;
+        padding: 16px 24px;
     }
 
     #contact h2 {
         font-size: 2.5rem;
     }
 
-    .skills-list span {
+    #contact a {
         font-size: 1rem;
-        padding: 14px 20px;
+        margin: 12px 10px;
+        padding: 14px 24px;
+    }
+}
+
+/* ========== DESKTOP (1024px) ========== */
+@media (min-width: 1024px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    header h1 {
+        display: none; /* Hide on desktop if logo/title is redundant */
+    }
+
+    nav ul {
+        gap: 35px;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+        transform: scale(1);
+    }
+
+    main {
+        margin-top: 5rem;
+    }
+
+    .profile-pic {
+        width: 220px;
+        height: 220px;
+    }
+
+    #about, #projects, #skills, #contact {
+        padding: 12vw 10vw;
+        max-width: 80vw;
+    }
+
+    .project-card {
+        padding: 35px;
+        font-size: 1.1rem;
+    }
+
+    .skills-list span {
+        font-size: 1.2rem;
+        padding: 18px 28px;
+    }
+
+    #contact h2 {
+        font-size: 3rem;
+    }
+
+    #contact a {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========== LARGE DESKTOP (1440px) ========== */
+@media (min-width: 1440px) {
+    #about, #projects, #skills, #contact {
+        max-width: 1200px;
     }
 }
