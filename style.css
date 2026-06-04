@@ -1,14 +1,28 @@
 /* MOBILE FIRST APPROACH */
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: #0d1117;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    scroll-padding-top: calc(3rem + 10px);
+    scroll-padding-top: calc(4rem + 10px);
+    line-height: 1.6;
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 /* Glassmorphism Header */
@@ -47,11 +61,19 @@ nav ul li a {
     font-weight: bold;
     font-size: 0.9rem;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 nav ul li a:hover {
     color: #58a6ff;
     transform: scale(1.05);
+}
+
+nav ul li a:focus {
+    outline: 2px solid #58a6ff;
+    outline-offset: 2px;
 }
 
 /* Sections */
@@ -78,7 +100,8 @@ main {
     margin: 20px auto;
 }
 
-.profile-pic:hover {
+.profile-pic:hover,
+.profile-pic:focus {
     transform: scale(1.08);
     box-shadow: 0px 15px 30px rgba(88, 166, 255, 0.8);
 }
@@ -111,6 +134,11 @@ main {
     position: relative;
     overflow: hidden;
     font-size: 0.95rem;
+}
+
+.project-card:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
 }
 
 /* Floating Animation */
@@ -195,6 +223,36 @@ main {
     box-shadow: 0px 5px 20px rgba(88, 166, 255, 0.5);
 }
 
+#contact a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* Three.js Container */
+#three-container {
+    width: 100%;
+    height: 500px;
+    margin: 40px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(88, 166, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    background: rgba(22, 27, 34, 0.9);
+    padding: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
 /* ========== TABLET (600px) ========== */
 @media (min-width: 600px) {
     header h1 {
@@ -255,6 +313,10 @@ main {
         margin: 10px 8px;
         padding: 12px 20px;
     }
+
+    #three-container {
+        height: 600px;
+    }
 }
 
 /* ========== TABLET LANDSCAPE (768px) ========== */
@@ -265,10 +327,14 @@ main {
 
     header h1 {
         font-size: 2rem;
+        margin-bottom: 0;
     }
 
     nav ul li a {
         font-size: 1.1rem;
+    }
+
+    nav ul {
         gap: 25px;
     }
 
@@ -318,6 +384,10 @@ main {
         margin: 12px 10px;
         padding: 14px 24px;
     }
+
+    #three-container {
+        height: 700px;
+    }
 }
 
 /* ========== DESKTOP (1024px) ========== */
@@ -327,7 +397,7 @@ main {
     }
 
     header h1 {
-        display: none; /* Hide on desktop if logo/title is redundant */
+        display: block;
     }
 
     nav ul {
@@ -370,11 +440,27 @@ main {
     #contact a {
         font-size: 1.1rem;
     }
+
+    #three-container {
+        height: 800px;
+    }
 }
 
 /* ========== LARGE DESKTOP (1440px) ========== */
 @media (min-width: 1440px) {
     #about, #projects, #skills, #contact {
         max-width: 1200px;
+    }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+@media (prefers-contrast: more) {
+    header {
+        background: rgba(0, 0, 0, 0.95);
+        border-bottom: 2px solid white;
+    }
+
+    #contact a {
+        border-width: 3px;
     }
 }
